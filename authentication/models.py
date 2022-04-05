@@ -52,7 +52,7 @@ class MyUserManager(UserManager):
 
         return self._create_user(username, email, password, **extra_fields)
 
-    
+
 
 
 
@@ -104,3 +104,7 @@ class User(AbstractBaseUser, PermissionsMixin, TrackingModel):
     EMAIL_FIELD = 'email'
     USERNAME_FIELD = 'username'     # Ei field er value email thakle login er somoy email lagbe, R ei field er value username thakle login er somoy username lagbe
     REQUIRED_FIELDS = ['email']     # USERNAME_FIELD er value email thakle ekhane username thakbe r username thakle email hobe
+
+    @property
+    def token(self):
+        return ''
