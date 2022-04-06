@@ -9,6 +9,6 @@ class RegisterApiSerializer(serializers.ModelSerializer):
         model = User
         fields = ['username', 'email', 'password']
 
-        def create(self, validated_data):
-            return User.objects.create_user(self, **validated_data)
+        # def create(self, validated_data):
+        #     return User.objects.create_user(self, **validated_data)
 
