@@ -11,4 +11,3 @@ class RegisterApiSerializer(serializers.ModelSerializer):
 
         # def create(self, validated_data):
         #     return User.objects.create_user(self, **validated_data)
-
