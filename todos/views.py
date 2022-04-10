@@ -7,7 +7,7 @@ from rest_framework.generics import CreateAPIView, ListCreateAPIView, RetrieveUp
 from todos.serializers import TodoCreateSerializer
 from todos.models import Todo
 from django_filters.rest_framework import  DjangoFilterBackend
-
+from .pagination import CustomPaginationClass
 
 # Create your views here.
 
@@ -23,6 +23,7 @@ from django_filters.rest_framework import  DjangoFilterBackend
 
 class TodoCreateApiView(ListCreateAPIView):
     serializer_class = TodoCreateSerializer
+    pagination_class = CustomPaginationClass
     queryset = Todo.objects.all()
     filter_backends = [DjangoFilterBackend, filters.SearchFilter, filters.OrderingFilter]
     filterset_fields = ['title', 'id', 'is_complete']
