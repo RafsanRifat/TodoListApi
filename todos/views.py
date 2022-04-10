@@ -24,9 +24,10 @@ from django_filters.rest_framework import  DjangoFilterBackend
 class TodoCreateApiView(ListCreateAPIView):
     serializer_class = TodoCreateSerializer
     queryset = Todo.objects.all()
-    filter_backends = [DjangoFilterBackend, filters.SearchFilter]
+    filter_backends = [DjangoFilterBackend, filters.SearchFilter, filters.OrderingFilter]
     filterset_fields = ['title', 'id', 'is_complete']
     search_fields = ['title', 'id', 'is_complete']
+    ordering_fields = ['title', 'id', 'is_complete']
 
     def perform_create(self, serializer):
         return serializer.save(owner=self.request.user)
