@@ -39,6 +39,7 @@ INSTALLED_APPS = [
     'todos',
     'authentication',
     'django_filters',
+    'drf_yasg',
 ]
 
 AUTH_USER_MODEL = 'authentication.User'
